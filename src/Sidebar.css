@@ -1,0 +1,50 @@
+.sidebar{
+    background-color: var(--slack-color);
+    color:white;
+    padding: 10px;
+    max-width: 260px;
+    border-top: 1px solid #49274b;
+    height: 100vh;
+    align-items: center;
+    
+}
+
+.comp{
+    flex: 1;
+}
+
+.sidebarHeader{
+    display: flex;
+    border-bottom: 1px solid #49274b;
+    padding-bottom: 10px;
+}
+
+.statusAndName{
+    display: flex;
+   
+    align-items: center;
+
+}
+
+.statusAndName > h3{
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.statusAndName > .MuiSvgIcon-root{
+    font-size: 15px;
+    color: green;
+}
+
+.sidebarHeader > .MuiSvgIcon-root{
+    padding: 8px;
+    font-size: 18px;
+    color:#49274b;
+    background-color: white;
+    border-radius: 999px;
+}
+
+.comp > h2{
+    font-size: 15px;
+    font-weight: 900;
+}
