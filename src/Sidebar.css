@@ -48,3 +48,9 @@
     font-size: 15px;
     font-weight: 900;
 }
+
+.sidebar hr{
+    margin: 10px 0;
+    border: 1px solid #49274b;
+
+}

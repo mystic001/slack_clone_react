@@ -1,4 +1,4 @@
-import React from 'react'
+import React ,{ useState, useEffect } from 'react'
 import "./Sidebar.css";
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import CreateIcon from '@material-ui/icons/Create';
@@ -12,9 +12,25 @@ import PeopleAltIcon from '@material-ui/icons/PeopleAlt';
 import AppsIcon from '@material-ui/icons/Apps';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import AddIcon from '@material-ui/icons/Add';
+import db from "./firebase";
 
 
 function Sidebar() {
+
+    const [channels , setChannels] = useState([]);
+
+    useEffect(() => {
+        db.collection('room').onSnapshot(snapshot=>{
+            setChannels(
+                snapshot.docs.map(doc =>({
+                    id:doc.id,
+                    name:doc.data().name
+                }))
+            );
+        })
+    }, [])
     return (
         <div className = "sidebar">
 
@@ -37,8 +53,16 @@ function Sidebar() {
             <SidebarOption Iconname ={AppsIcon} title = "Apps"/>
             <SidebarOption Iconname ={FileCopyIcon} title = "File browser"/>
             <SidebarOption Iconname ={ExpandLessIcon} title = "Show less"/>
-            
+            <SidebarOption Iconname ={AccountBalanceIcon} title = "Account Balance"/>
             <SidebarOption title = "SecondOption"/>
+            <hr/>
+            <SidebarOption Iconname ={ExpandMoreIcon} title = "Channels"/>
+            <hr/>
+            <SidebarOption Iconname ={AddIcon} title = "Add Channels"/>
+            
+            {channels.map(channel=>(
+                <SidebarOption title ={channel.name} />
+            ))}
         </div>
     )
 }
