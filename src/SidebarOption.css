@@ -19,9 +19,18 @@
     margin-left: 10px;
 }
 
+.titleOnly{
+    display: flex;
+    align-items: center;
+}
+
 .titleOnly h3{
     font-size: 15px;
     font-weight: 500;
+}
+
+.tit{
+    margin-left: 10px;
 }
 
 .sideBarOption:hover{

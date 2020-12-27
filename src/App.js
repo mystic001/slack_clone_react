@@ -1,38 +1,36 @@
-
-import './App.css';
+import { useState } from "react";
+import "./App.css";
 import Header from "./Header";
 import Sidebar from "./Sidebar.js";
+import Chat from "./Chat";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Login from "./Login";
 
 function App() {
+  const [user, setUser] = useState(null);
   return (
     <div className="App">
-   {
-/**
- * <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        <em>Bold</em>
-        </p>
-        <h1>You they play</h1>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
- */
-   }   
-   <Header/>
+      <Router>
+        {!user ? (
+          <Login />
+        ) : (
+          <>
+            <Header />
+            <div className="app__body">
+              <Sidebar />
+              <Switch>
+                <Route path="/slack_clone_react/:roomId">
+                  <Chat />
+                </Route>
 
-   <div className = "app__body">
-    <Sidebar/>
-   </div>
-
-
+                <Route path="/">
+                  <h3>Welcome</h3>
+                </Route>
+              </Switch>
+            </div>
+          </>
+        )}
+      </Router>
     </div>
   );
 }

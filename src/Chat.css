@@ -1,0 +1,29 @@
+.chatSpace {
+  flex: 0.8;
+}
+
+.chatheader {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgray;
+}
+
+.chatheader__left {
+  display: flex;
+  align-items: center;
+}
+
+.chatheader__right {
+  display: flex;
+  align-items: center;
+}
+
+.chatheader__right > .MuiSvgIcon-root {
+  margin-left: 5px;
+}
+
+.chatheader__left > .MuiSvgIcon-root {
+  margin-left: 5px;
+}

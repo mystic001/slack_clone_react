@@ -33,7 +33,6 @@ function Sidebar() {
     }, [])
     return (
         <div className = "sidebar">
-
             <div className = "sidebarHeader">
                 <div className = "comp">
                 <h2>Augustos</h2>
@@ -58,11 +57,13 @@ function Sidebar() {
             <hr/>
             <SidebarOption Iconname ={ExpandMoreIcon} title = "Channels"/>
             <hr/>
-            <SidebarOption Iconname ={AddIcon} title = "Add Channels"/>
-            
-            {channels.map(channel=>(
-                <SidebarOption title ={channel.name} />
-            ))}
+            <SidebarOption Iconname ={AddIcon} title = "Add Channels" addChanelOption/>
+            {/**This renders the channels we are getting from the internet */}
+            {
+            channels.map(channel=>(
+                <SidebarOption title ={channel.name} id = {channel.id} />
+            ))
+            }
         </div>
     )
 }
